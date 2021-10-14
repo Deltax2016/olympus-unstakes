@@ -7,7 +7,7 @@ import time
 StartTime=time.time()
 
 AMOUNT_MIN = 1
-INTERVAL_IN_SECONDS = 30
+INTERVAL_IN_SECONDS = 600
 
 class setInterval :
     def __init__(self,interval,action) :
@@ -45,7 +45,7 @@ def getUnstakes(amount, timestamp):
         raise Exception("Query failed to run by returning code of {}. {}".format(request.status_code, query))
 
 def action():
-    timestamp = time.time() - INTERVAL_IN_SECONDS
+    timestamp = time.time() - INTERVAL_IN_SECONDS - 20
     unstakes_data = getUnstakes(AMOUNT_MIN, timestamp)
     unstakes_data = unstakes_data['data']['unstakes']
     print(time.time())
